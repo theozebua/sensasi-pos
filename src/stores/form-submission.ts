@@ -1,8 +1,10 @@
 import { create } from 'zustand'
 
+export type ToggleSubmitting = () => void
+
 export interface FormSubmissionState {
   isSubmitting: boolean
-  toggleSubmitting: () => void
+  toggleSubmitting: ToggleSubmitting
 }
 
 export const useFormSubmissionState = create<FormSubmissionState>(set => ({

@@ -1,14 +1,17 @@
 import { create } from 'zustand'
 
-interface InputErrorMessageState {
+export type SetErrorMessage = (identifier: string, message: string) => void
+export type ClearErrorMessage = () => void
+
+export interface InputErrorMessageState {
   identifier: string
   message: string
 }
 
-interface ErrorMessageState {
+export interface ErrorMessageState {
   fields: InputErrorMessageState[]
-  setErrorMessage: (identifier: string, message: string) => void
-  clearErrorMessages: () => void
+  setErrorMessage: SetErrorMessage
+  clearErrorMessages: ClearErrorMessage
 }
 
 export const useErrorMessageState = create<ErrorMessageState>(set => ({
